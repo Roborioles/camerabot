@@ -13,18 +13,23 @@ void AutoGearPlacement::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void AutoGearPlacement::Execute() {
-	Robot::mover->CenterRobot(t);
-	t++;
+	//Robot::mover->CenterRobot(t);
+	//t++;
+	Robot::mover->DriveForward(0.22);
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool AutoGearPlacement::IsFinished() {
-	return false;
+	if ((Robot::mover->FindDistance())<12.5) {
+		return true ;
+	} else {
+		return false;
+	}
 }
 
 // Called once after isFinished returns true
 void AutoGearPlacement::End() {
-
+	Robot::mover->StopMotors();
 }
 
 // Called when another command which requires one or more of the same

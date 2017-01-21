@@ -26,7 +26,7 @@ void DriveBot::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void DriveBot::Execute() {
-	Joystick* stick = Robot::oi->getGamePad();
+	std::shared_ptr<Joystick> stick = Robot::oi->getGamePad();
 	
 	if(Robot::mover->speedSwitch->Get()){
 

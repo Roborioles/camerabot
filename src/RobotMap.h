@@ -36,5 +36,6 @@ public:
 
 	static void init();
 	static I2C* pixyi2c;
+	static std::shared_ptr<Ultrasonic> moverUltrasonic;
 };
 #endif
